@@ -9,6 +9,7 @@
 /* Start variables */
 :root {
     --main-color: #19c8fa;
+    --transparent-color: rgb(15 116 143 / 70%);
 }
 
 /* End variables */
@@ -26,8 +27,37 @@ ul {
 
 i {
     color: white;
+    font-size: 22px !important;
 }
 
+.transform-vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.transform-horizontal-center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.transform-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    -webkit-transform: translate(-50% ,-50%);
+    -moz-transform: translate(-50% ,-50%);
+    -ms-transform: translate(-50% ,-50%);
+    -o-transform: translate(-50% ,-50%);
+}
 /* End Global Rules */
 
 /* Start Header  */
@@ -37,6 +67,7 @@ header {
     left: 0;
     top: 0;
     background: transparent;
+    z-index: 2;
 }
 
 header .container {
@@ -96,6 +127,7 @@ header .container nav ul {
     header .container nav .toggle-menu {
         display: inline;
     }
+
     header .container nav ul {
         display: none;
     }
@@ -134,16 +166,107 @@ header .container nav div:last-child {
 
 header .container nav div:last-child i {
     font-size: 20px;
-    position: absolute;
-    top: 50%;
     right: 0;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
 }
+
 /* End Header */
+
+/* Start Landing */
+.landing {
+    position: relative;
+    height: 100vh;
+    background-image: url(/imgs/landing.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.landing .overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 60%)
+}
+
+.landing .landing-text {
+    background-color: var(--transparent-color, #126075);
+    width: 50%;
+    padding: 50px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+/* For Mobail */
+@media (max-width:767px) {
+    .landing .landing-text {
+        width: 100%;
+    }
+}
+
+.landing .landing-text .content {
+    max-width: 500px;
+}
+
+.landing .landing-text .content h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.landing .landing-text .content p {
+    font-size: 14px;
+    line-height: 2;
+}
+
+.landing i:first-of-type {
+    top: 50%;
+    right: 30px;
+}
+
+.landing i:nth-of-type(2) {
+    top: 50%;
+    left: 30px;
+}
+/* For Mobail  */
+@media (max-width:767px) {
+    .landing i {
+        display: none;
+    }
+}
+
+.landing ul {
+    display: flex;
+    gap: 10px;
+    bottom: 20px;
+}
+
+.landing ul li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 1px solid white;
+}
+
+.landing ul li.active {
+    background-color: var(--main-color);
+}
+/* End Landing */
+
+
+
+
 
 /* Small */
 @media (min-width: 768px) {
